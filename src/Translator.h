@@ -2,6 +2,7 @@
 #include <string>
 #include <curl/curl.h>
 #include <vector>
+#include "jsoncpp/include/json/json.h"
 
 class Translator
 {
@@ -26,7 +27,7 @@ private:
 	std::string _myLang;
 
 	CURL* curl;
-	std::string _curlBuffer;
+	mutable std::string _curlBuffer;
 	char _curlErrorBuffer[CURL_ERROR_SIZE];
 
 	static int writer(char *data, size_t size, size_t nmemb, std::string *buffer);

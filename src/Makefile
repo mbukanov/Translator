@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp Translator.h Translator.cpp -o result -lcurl
+	g++ main.cpp Translator.h Translator.cpp -o result -lcurl -ljsoncpp -L.
