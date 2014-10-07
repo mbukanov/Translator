@@ -16,7 +16,6 @@ Translator::Translator(std::string &key) : _apiKey(key), _myLang("")
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &Translator::writer);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &_curlBuffer);
     curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, _curlErrorBuffer);
-
 }
 
 Translator::Translator(std::string key, std::string myLang) : _apiKey(key), _myLang(myLang)
@@ -52,7 +51,6 @@ Translator::Langs Translator::getLangs() const
 		// error
 	}
 
-	std::cout<<_curlBuffer<<std::endl;
 
 	Json::Reader reader;
 	Json::Value root;
@@ -148,7 +146,6 @@ std::string Translator::translate(std::string from, std::string to, std::string 
 
     Json::Reader reader;
     Json::Value root;
-    std::cout<<"Buffer: "<<_curlBuffer<<std::endl;
     reader.parse(_curlBuffer, root);
 
     for(int i = 0; i < root["text"].size(); i++)
